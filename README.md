@@ -1,4 +1,4 @@
-# feature_flag
+# feature_flags
 
 This package simply allows you to activate dynamically functionnalities of your app.
 
@@ -16,7 +16,7 @@ Features(
 );
 ```
 
-## Test if a feature is enabled
+## Testing if a feature is enabled
 
 To test is a feature is currently enabled, use the `Features.isFeatureEnabled` function with a unique functionnality identifier.
 
@@ -48,8 +48,8 @@ You can activate a feature by calling the `Features.setFeature` function. The fe
 ```dart
 Features.setFeature(
     context,
-    feature.id,
-    newValue,
+    'DECREMENT',
+    true,
 );
 ```
 
