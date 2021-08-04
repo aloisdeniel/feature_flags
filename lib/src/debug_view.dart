@@ -1,4 +1,4 @@
-import 'package:feature_flags/feature_flag.dart';
+import 'package:feature_flags/feature_flags.dart';
 import 'package:flutter/material.dart';
 
 class Feature {
