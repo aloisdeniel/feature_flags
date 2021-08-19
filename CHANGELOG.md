@@ -1,3 +1,7 @@
+## 0.1.4
+
+* Adds `showDebugView` to `Features`.
+
 ## 0.1.3
 
 * Fixed debug view.

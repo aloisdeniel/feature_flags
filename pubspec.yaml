@@ -1,6 +1,6 @@
 name: feature_flags
 description: A Flutter package to manage feature flagging.
-version: 0.1.3
+version: 0.1.4
 homepage: https://github.com/aloisdeniel/feature_flags
 
 environment:

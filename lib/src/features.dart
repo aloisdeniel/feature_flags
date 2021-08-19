@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'debug_view.dart';
 import 'inherited_features.dart';
 
 class Features extends StatefulWidget {
@@ -15,6 +16,10 @@ class Features extends StatefulWidget {
   final Widget child;
   final String sharedPreferencesKey;
 
+  /// Allows to enable or disable the feature with the given [id].
+  ///
+  /// Its new [isEnabled] status is saved into local preferences and so it
+  /// is persisted between app sessions.
   static void setFeature(
     BuildContext context,
     String id,
@@ -24,6 +29,12 @@ class Features extends StatefulWidget {
     await state!.setFeature(id, isEnabled);
   }
 
+  /// Indicates whether the feature with the given [id] is currently enabled.
+  ///
+  /// The feature can be enabled :
+  ///  * from the [Features] 's constructor by passing [id] as [flags] parameter.
+  ///  * by calling [setFeature] with [id]
+  ///  * by showing the debug view with [showDebugView] with a declared [Feature].
   static bool isFeatureEnabled(BuildContext context, String id) {
     final state = InheritedModel.inheritFrom<InheritedFeatures>(
       context,
@@ -31,6 +42,20 @@ class Features extends StatefulWidget {
     );
     return state!.flags.contains(id);
   }
+
+  /// Shows a debug view that allows to activate or deactive the given [availableFeatures].
+  ///
+  /// The [title] can be customized.
+  static Future<void> showDebugView(
+    BuildContext context, {
+    required List<Feature> availableFeatures,
+    String title = 'Feature flags',
+  }) =>
+      DebugFeatures.show(
+        context,
+        availableFeatures: availableFeatures,
+        title: title,
+      );
 
   static void reset(BuildContext context) {
     final state = context.findAncestorStateOfType<_FeaturesState>();
