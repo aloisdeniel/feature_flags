@@ -1,6 +1,7 @@
+
 # feature_flags
 
-This package simply allows you to activate dynamically functionnalities of your app.
+This package allows you to simply dynamically activate different functionalities of your app.
 
 # Usage
 
@@ -18,7 +19,7 @@ Features(
 
 ## Testing if a feature is enabled
 
-To test is a feature is currently enabled, use the `Features.isFeatureEnabled` function with a unique functionnality identifier.
+To test is a feature is currently enabled, use the `Features.isFeatureEnabled` function with a unique functionality identifier.
 
 ```dart
 if (Features.isFeatureEnabled(context, 'DECREMENT')) {
@@ -55,9 +56,9 @@ Features.setFeature(
 
 ### Using the debug view
 
-The debug view allow your users to activate or deactivate any dynamic feature.
+The debug view allows your users to activate or deactivate any dynamic feature.
 
-> This may be useful during developpment, but it should be used carefuly.
+> This may be useful during development, but it should be used carefully.
 
 ```dart
 DebugFeatures.show(
